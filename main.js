@@ -30,7 +30,7 @@ async function main() {
   const errorMsg = {}
   try {
     // 开始签到
-     (const user of userinfo) {
+  for (const user of userinfo) {
       const headers = { 'cookie': 'token=' + user.token + '; userid=' + user.userid }
       // console.log(headers)
       const userDetail = await send(`/user/detail?timestrap=${Date.now()}`, "GET", headers)
@@ -74,7 +74,7 @@ async function main() {
       }
 
       printYellow("开始领取VIP...")
-       (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= 8; i++) {
         // ad获取vip
         const ad = await send(`/youth/vip?timestrap=${Date.now()}`, "GET", headers)
         // 签到出现问题
